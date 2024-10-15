@@ -1,0 +1,12 @@
+﻿<Window x:Class="Projekt_SternbergundMehr.PrintPreviewWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Druckvorschau" Height="800" Width="600"   WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <DocumentViewer Name="documentViewer"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Name="btnPrint" Content="Drucken" Margin="10" Width="100" Click="btnPrint_Click"/>
+            <Button Name="btnClose" Content="Schließen" Margin="10" Width="100" Click="btnClose_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
