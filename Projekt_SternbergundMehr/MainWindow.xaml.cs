@@ -92,5 +92,12 @@ namespace Projekt_SternbergundMehr
         {
             Application.Current.Shutdown();
         }
+
+        private void mitlgieder_nav_Click(object sender, RoutedEventArgs e)
+        {
+            Window mitglied_window = new Window_Mitgliederverwaltung();
+
+            mitglied_window.Show();
+        }
     }
 }

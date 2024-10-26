@@ -303,7 +303,7 @@
 
 
             </Menu>
-            <MenuItem x:Name="help_nav_Kopieren" Header="        Mitglieder" Background="Transparent" Foreground="#FFC5C6C7" Height="102" Width="232" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold">
+            <MenuItem x:Name="mitlgieder_nav" Header="        Mitglieder" Background="Transparent" Foreground="#FFC5C6C7" Height="102" Width="232" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Click="mitlgieder_nav_Click">
                 <MenuItem.Icon>
                     <Image Source="/images/help.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                 </MenuItem.Icon>
