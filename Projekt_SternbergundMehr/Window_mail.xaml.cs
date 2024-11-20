@@ -28,7 +28,6 @@ namespace Projekt_SternbergundMehr
            
         }
 
-        //methods
 
         private async void recieve_mail()
         {
@@ -36,15 +35,14 @@ namespace Projekt_SternbergundMehr
 
             try
             {
-                // Outlook setup
+                
                 Outlook.Application _app = new Outlook.Application();
                 Outlook.NameSpace _ns = _app.GetNamespace("MAPI");
                 Outlook.MAPIFolder inbox = _ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);
 
-                // Restrict to unread items
+                
                 Outlook.Items unreadItems = inbox.Items.Restrict("[Unread] = true");
 
-                // Anzahl der ungelesenen E-Mails ermitteln
                 int totalItems = unreadItems.Count;
                 if (totalItems == 0)
                 {
@@ -58,14 +56,14 @@ namespace Projekt_SternbergundMehr
                 progressWindow.Show();
                 
 
-                // Prepare DataTable to store mail items
+                
                 dt = new DataTable("Inbox");
                 dt.Columns.Add("Betreff", typeof(string));
                 dt.Columns.Add("Absender", typeof(string));
                 dt.Columns.Add("Inhalt", typeof(string));
                 dt.Columns.Add("Datum", typeof(DateTime));
 
-                // Iteriere durch die ungelesenen E-Mails und aktualisiere die ProgressBar
+              
                 int processedItems = 0;
 
                 foreach (object item in unreadItems)
@@ -86,7 +84,7 @@ namespace Projekt_SternbergundMehr
                         processedItems++;
                         progressWindow.SetProgress(processedItems);
 
-                        // Simuliere Verzögerung für UI-Aktualisierung
+                        
                         await Task.Delay(50);
                     }
                 }
@@ -101,7 +99,7 @@ namespace Projekt_SternbergundMehr
             }
             finally
             {
-                // Schließe das Progress-Fenster, nachdem der Vorgang abgeschlossen ist
+                
                 if (progressWindow != null)
                 {
                     progressWindow.Close();
@@ -185,6 +183,8 @@ namespace Projekt_SternbergundMehr
 
 
         }
+
+       
 
 
         private void btn_recieve_Click(object sender, RoutedEventArgs e)

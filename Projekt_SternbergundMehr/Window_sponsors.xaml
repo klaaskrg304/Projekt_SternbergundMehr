@@ -520,7 +520,7 @@ CornerRadius="15">
               AutoGenerateColumns="True"
               CanUserResizeColumns="False" 
               CanUserResizeRows="False" 
-              ColumnWidth="auto" 
+              ColumnWidth="*" 
               EnableRowVirtualization="True" 
               SelectionChanged="dataGrid_sponsoren_SelectionChanged" 
               Background="Transparent" HorizontalAlignment="Left" Width="767" Margin="96,209,0,0" Height="566" VerticalAlignment="Top"/>

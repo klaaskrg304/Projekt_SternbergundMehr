@@ -22,7 +22,7 @@ namespace Projekt_SternbergundMehr
 
         public ObservableCollection<MitgliedData> LoadMitglieder()
         {
-            string query = "SELECT \"Name\", \"Adresse\", \"Telefonnummer\", \"Beitrag\" FROM tbl_mitglieder";
+            string query = "SELECT \"Name\", \"Adresse\", \"Telefonnummer\", \"Beitrag\" FROM mitglieder";
             DataTable dataTable = dbConnection.ExecuteQuery(query);
 
             ObservableCollection<MitgliedData> mitglieder = new ObservableCollection<MitgliedData>();
