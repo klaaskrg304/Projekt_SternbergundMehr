@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -23,7 +19,7 @@ namespace Projekt_SternbergundMehr
 
         ~PrinterHelper_Umzug() { }
 
-        public new List<ParticipantsData>  ExtractDataFromDataGrid()
+        public new List<ParticipantsData> ExtractDataFromDataGrid()
         {
             List<ParticipantsData> participantlist = new List<ParticipantsData>();
 
@@ -46,13 +42,13 @@ namespace Projekt_SternbergundMehr
 
             FixedDocument fixedDoc = new FixedDocument();
             FixedPage fixedPage = new FixedPage
-            
+
             {
                 Width = 827, // A4 Papierbreite in Punkte (210 mm)
                 Height = 1169 // A4 Papierhöhe in Punkte (297 mm)
             };
 
-           
+
 
             StackPanel printPanel = new StackPanel
             {
@@ -63,7 +59,7 @@ namespace Projekt_SternbergundMehr
 
             TextBlock title = new TextBlock
             {
-                Text = "Teilnehmerliste"+   "//" + shortDateTime,
+                Text = "Teilnehmerliste" + "//" + shortDateTime,
                 FontSize = 24,
                 FontWeight = FontWeights.Bold,
                 Margin = new Thickness(0, 0, 0, 20),
@@ -102,10 +98,10 @@ namespace Projekt_SternbergundMehr
 
             AddGridHeader(grid);
             AddGridRows(grid, participantlist);
-            
+
             printPanel.Children.Add(grid);
 
-           
+
 
 
             // Horizontaler Balken
@@ -118,15 +114,15 @@ namespace Projekt_SternbergundMehr
             };
             printPanel.Children.Add(horizontalBar);
 
-            
-            
+
+
 
             fixedPage.Children.Add(printPanel);
 
             PageContent pageContent = new PageContent();
             ((IAddChild)pageContent).AddChild(fixedPage);
             fixedDoc.Pages.Add(pageContent);
-          
+
 
             return fixedDoc;
         }
@@ -156,7 +152,7 @@ namespace Projekt_SternbergundMehr
             grid.Children.Add(headerFirma);
             grid.Children.Add(headerAnsprechpartner);
             grid.Children.Add(headerAdresse);
-            
+
         }
 
         private void AddGridRows(Grid grid, List<ParticipantsData> participantlist)
@@ -186,7 +182,7 @@ namespace Projekt_SternbergundMehr
                 grid.Children.Add(textFirma);
                 grid.Children.Add(textAnsprechpartner);
                 grid.Children.Add(textAdresse);
-                
+
 
                 rowIndex++;
             }

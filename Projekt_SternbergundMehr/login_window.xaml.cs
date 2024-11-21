@@ -1,23 +1,9 @@
-﻿using Npgsql;
-
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Projekt_SternbergundMehr
 {
-    
+
 
     public partial class login_window : Window
     {
@@ -31,7 +17,7 @@ namespace Projekt_SternbergundMehr
             dbConnection = new DBConnection();
 
 
-            
+
 
         }
 
@@ -49,7 +35,7 @@ namespace Projekt_SternbergundMehr
             string storedhash = dbConnection.get_Hash();
             hash.VerifyPassword(enteredpasswored, storedhash);
 
-            if(hash.VerifyPassword(enteredpasswored, storedhash)==true)
+            if (hash.VerifyPassword(enteredpasswored, storedhash) == true)
             {
                 this.DialogResult = true;
                 MessageBox.Show($"Login erfolgreich!");
@@ -57,7 +43,7 @@ namespace Projekt_SternbergundMehr
 
             else
             {
-                attempts++; 
+                attempts++;
                 if (attempts >= maxAttempts)
                 {
                     MessageBox.Show("Zu viele fehlgeschlagene Versuche! Der Zugang ist gesperrt.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -66,10 +52,10 @@ namespace Projekt_SternbergundMehr
                 else
                 {
                     MessageBox.Show($"Falsches Passwort! Versuche verbleibend: {maxAttempts - attempts}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-                    
+
                 }
 
-               
+
             }
         }
 

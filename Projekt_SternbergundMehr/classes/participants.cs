@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Npgsql;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Common;
-using Npgsql;
 using System.Data;
 
 namespace Projekt_SternbergundMehr
 {
-    
+
 
     internal class participants
     {
@@ -19,7 +14,7 @@ namespace Projekt_SternbergundMehr
 
         public participants()
         {
-            dbConnection = new DBConnection();  
+            dbConnection = new DBConnection();
         }
 
         public ObservableCollection<ParticipantsData> Loadparticipants()
@@ -36,10 +31,10 @@ namespace Projekt_SternbergundMehr
                     Firma = row["Firma"].ToString(),
                     Ansprechpartner = row["Ansprechpartner"].ToString(),
                     Adresse = row["Adresse"].ToString()
-                    
-                   
+
+
                 });
-                
+
 
             }
 
@@ -61,12 +56,12 @@ namespace Projekt_SternbergundMehr
                 new NpgsqlParameter("@Firma", participants.Firma),
                 new NpgsqlParameter("@Ansprechpartner", participants.Ansprechpartner),
                 new NpgsqlParameter("@Adresse", participants.Adresse)
-               
+
             };
             dbConnection.ExecuteNonQuery(query, parameters);
         }
 
-        
+
 
         public void DeleteParticipant(string firma)
         {
@@ -91,15 +86,15 @@ namespace Projekt_SternbergundMehr
             dbConnection.ExecuteNonQuery(query, parameters);
         }
 
-       /* public double GetTotalAmount()
-        {
-            string query = "SELECT SUM(\"Betrag\") FROM tbl_sponsoren";
-            object result = dbConnection.ExecuteScalar(query);
-            return result != DBNull.Value ? Convert.ToDouble(result) : 0;
-        }*/
+        /* public double GetTotalAmount()
+         {
+             string query = "SELECT SUM(\"Betrag\") FROM tbl_sponsoren";
+             object result = dbConnection.ExecuteScalar(query);
+             return result != DBNull.Value ? Convert.ToDouble(result) : 0;
+         }*/
     }
 }
 
 
-    
+
 

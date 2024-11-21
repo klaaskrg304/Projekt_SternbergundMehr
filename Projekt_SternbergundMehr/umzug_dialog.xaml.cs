@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Projekt_SternbergundMehr
 {
@@ -100,7 +91,7 @@ namespace Projekt_SternbergundMehr
             {
                 try
                 {
-                   participantsManager.DeleteParticipant(selectedParticipant.Firma);
+                    participantsManager.DeleteParticipant(selectedParticipant.Firma);
                     LoadParticipantsFromDatabase();
                 }
                 catch (Exception ex)
@@ -121,11 +112,11 @@ namespace Projekt_SternbergundMehr
                         Firma = tbx_Firma.Text,
                         Ansprechpartner = tbx_anspr.Text,
                         Adresse = tbx_adress.Text,
-                        Position= int.Parse(tbx_betrag.Text)
+                        Position = int.Parse(tbx_betrag.Text)
                     };
 
                     participantsManager.UpdateParticipant(updatedParticipant, selectedParticipant.Firma);
-                    
+
                     LoadParticipantsFromDatabase();
                 }
                 catch (Exception ex)

@@ -6,7 +6,7 @@
         xmlns:f="clr-namespace:FluentWpfChromes;assembly=FluentWpfChromes"
         xmlns:local="clr-namespace:Projekt_SternbergundMehr"
         mc:Ignorable="d"
-        Title="Window_spnsors_dialog" Background="Transparent" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="Window_spnsors_dialog"  Closed="Window_Closed"  Background="Transparent" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <Window.Resources>
         <Style x:Key="ModernTextBox" TargetType="TextBox">
@@ -193,7 +193,7 @@
                         <Border Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="15">
+                CornerRadius="0">
                             <ContentPresenter HorizontalAlignment="Center"
                               VerticalAlignment="Center"/>
                         </Border>
@@ -241,7 +241,7 @@
                         <Border Background="{TemplateBinding Background}"
         BorderBrush="{TemplateBinding BorderBrush}"
         BorderThickness="{TemplateBinding BorderThickness}"
-        CornerRadius="15">
+        CornerRadius="0">
                             <ContentPresenter HorizontalAlignment="Center"
                       VerticalAlignment="Center"/>
                         </Border>

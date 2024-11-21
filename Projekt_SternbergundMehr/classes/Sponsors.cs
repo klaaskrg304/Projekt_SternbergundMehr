@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Data.Common;
-using Npgsql;
 
 namespace Projekt_SternbergundMehr
 {
@@ -16,7 +15,7 @@ namespace Projekt_SternbergundMehr
         }
         ~Sponsors()
         {
-            
+
         }
 
         public ObservableCollection<SponsorData> LoadSponsors()

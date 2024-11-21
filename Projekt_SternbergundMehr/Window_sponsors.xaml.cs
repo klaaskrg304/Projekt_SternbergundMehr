@@ -3,24 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.Office.Interop.Word;
-using static MaterialDesignThemes.Wpf.Theme.ToolBar;
 using WpfWindow = System.Windows.Window;
 
 namespace Projekt_SternbergundMehr
 {
-    
+
     public partial class Window_sponsors : WpfWindow
     {
 
@@ -33,11 +25,11 @@ namespace Projekt_SternbergundMehr
         public Window_sponsors()
         {
             InitializeComponent();
-           
+
 
 
             sponsorsManager = new Sponsors();
-            LoadSponsorsFromDatabase();
+            RefreshDataGrid();
             betrag_add();
         }
 
@@ -47,14 +39,26 @@ namespace Projekt_SternbergundMehr
         }
 
 
-
-
-        private void LoadSponsorsFromDatabase()
+       
+        public void LoadSponsorsFromDatabase()
         {
             try
             {
                 Sponsors = sponsorsManager.LoadSponsors();
                 dataGrid_sponsoren.ItemsSource = Sponsors;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Laden der Daten: {ex.Message}");
+            }
+        }
+
+        public void RefreshDataGrid()
+        {
+            try
+            {
+                Sponsors = sponsorsManager.LoadSponsors();
+                dataGrid_sponsoren.ItemsSource = Sponsors; // DataGrid aktualisieren
             }
             catch (Exception ex)
             {
@@ -98,6 +102,9 @@ namespace Projekt_SternbergundMehr
                     MessageBox.Show($"Fehler beim Löschen der Daten: {ex.Message}");
                 }
             }
+
+            betrag_add();
+            
         }
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
@@ -252,7 +259,7 @@ namespace Projekt_SternbergundMehr
 
         private void btn_betragaddieren_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         public void betrag_add()
@@ -261,7 +268,7 @@ namespace Projekt_SternbergundMehr
             {
                 double totalAmount = sponsorsManager.GetTotalAmount();
                 string formattedAmount = totalAmount.ToString("N2", CultureInfo.GetCultureInfo("de-DE")) + " €";
-               // MessageBox.Show($"Die Gesamtsumme der Spenden beträgt: {formattedAmount}");
+                // MessageBox.Show($"Die Gesamtsumme der Spenden beträgt: {formattedAmount}");
                 tbx_sum.Text = formattedAmount;
             }
             catch (Exception ex)
@@ -286,7 +293,7 @@ namespace Projekt_SternbergundMehr
 
         private void btn_umzug_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btn_umzug_Click_1(object sender, RoutedEventArgs e)
@@ -369,12 +376,12 @@ namespace Projekt_SternbergundMehr
 
         private void btn_dialaog_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btn_formular_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btn_close_Click(object sender, RoutedEventArgs e)
@@ -442,21 +449,21 @@ namespace Projekt_SternbergundMehr
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
 
-            
+
             this.Close();
-            
-           
+
+
 
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    DragMove();
-                }
-            
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+
 
         }
 
@@ -465,12 +472,7 @@ namespace Projekt_SternbergundMehr
 
         }
 
-        private void btn_dialog_Click(object sender, RoutedEventArgs e)
-        {
-            Window_spnsors_dialog window_ = new Window_spnsors_dialog();
-            window_.Show();
-
-        }
+        
 
         private void btn_delete_Click_1(object sender, RoutedEventArgs e)
         {
@@ -486,12 +488,24 @@ namespace Projekt_SternbergundMehr
                     MessageBox.Show($"Fehler beim Löschen der Daten: {ex.Message}");
                 }
             }
+            betrag_add();
         }
 
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
-            
+
             search_dataGrid();
+        }
+
+        private void tbx_sum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void btn_dialog_Click(object sender, RoutedEventArgs e)
+        {
+            var dialogWindow = new Window_spnsors_dialog(this); // Übergibt das Hauptfenster
+            dialogWindow.ShowDialog();
         }
     }
 }
@@ -519,8 +533,8 @@ public class SponsorData
 
 
 
-    
 
 
-   
+
+
 

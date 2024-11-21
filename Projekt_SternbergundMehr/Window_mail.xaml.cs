@@ -1,18 +1,10 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace Projekt_SternbergundMehr
@@ -25,7 +17,7 @@ namespace Projekt_SternbergundMehr
         public Window_mail()
         {
             InitializeComponent();
-           
+
         }
 
 
@@ -35,12 +27,12 @@ namespace Projekt_SternbergundMehr
 
             try
             {
-                
+
                 Outlook.Application _app = new Outlook.Application();
                 Outlook.NameSpace _ns = _app.GetNamespace("MAPI");
                 Outlook.MAPIFolder inbox = _ns.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderInbox);
 
-                
+
                 Outlook.Items unreadItems = inbox.Items.Restrict("[Unread] = true");
 
                 int totalItems = unreadItems.Count;
@@ -54,16 +46,16 @@ namespace Projekt_SternbergundMehr
                 progressWindow = new ProgressWindow();
                 progressWindow.SetMaximum(totalItems);
                 progressWindow.Show();
-                
 
-                
+
+
                 dt = new DataTable("Inbox");
                 dt.Columns.Add("Betreff", typeof(string));
                 dt.Columns.Add("Absender", typeof(string));
                 dt.Columns.Add("Inhalt", typeof(string));
                 dt.Columns.Add("Datum", typeof(DateTime));
 
-              
+
                 int processedItems = 0;
 
                 foreach (object item in unreadItems)
@@ -80,11 +72,11 @@ namespace Projekt_SternbergundMehr
                         });
 
                         // Aktualisiere den Fortschritt in der ProgressBar
-                        
+
                         processedItems++;
                         progressWindow.SetProgress(processedItems);
 
-                        
+
                         await Task.Delay(50);
                     }
                 }
@@ -99,7 +91,7 @@ namespace Projekt_SternbergundMehr
             }
             finally
             {
-                
+
                 if (progressWindow != null)
                 {
                     progressWindow.Close();
@@ -184,7 +176,7 @@ namespace Projekt_SternbergundMehr
 
         }
 
-       
+
 
 
         private void btn_recieve_Click(object sender, RoutedEventArgs e)
@@ -216,10 +208,9 @@ namespace Projekt_SternbergundMehr
             }
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            e.Handled = true;
-        }
+
+
+
 
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
@@ -236,10 +227,6 @@ namespace Projekt_SternbergundMehr
             this.Close();
         }
 
-        private void mail_nav_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btn_recieve_Click_1(object sender, RoutedEventArgs e)
         {
@@ -255,6 +242,7 @@ namespace Projekt_SternbergundMehr
         {
             Window_mail02_ window_Mail02 = new Window_mail02_();
             window_Mail02.Show();
+
         }
 
         private void write_mail_Click_1(object sender, RoutedEventArgs e)
@@ -381,7 +369,12 @@ namespace Projekt_SternbergundMehr
                 }
             }
         }
+
+        private void mail_nav_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
-    
+
 

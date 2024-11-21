@@ -1,18 +1,9 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 
 namespace Projekt_SternbergundMehr
@@ -28,14 +19,15 @@ namespace Projekt_SternbergundMehr
 
         public ObservableCollection<SponsorData> Sponsors { get; set; }
 
+        private Window_sponsors mainSponsorsWindow;
 
-        public Window_spnsors_dialog()
+        public Window_spnsors_dialog(Window_sponsors parentWindow)
         {
+           
             InitializeComponent();
             sponsorsManager = new Sponsors();
+            mainSponsorsWindow = parentWindow; // Referenz auf das Hauptfenster
             LoadSponsorsFromDatabase();
-            Window_sponsors window_Sponsors = new Window_sponsors();
-            window_Sponsors.Hide();
         }
 
         private void ClearInputFields()
@@ -86,8 +78,9 @@ namespace Projekt_SternbergundMehr
                 Window_sponsors window_Sponsors = new Window_sponsors();
                 window_Sponsors.Hide();
                 window_Sponsors.betrag_add();
-                window_Sponsors.Close();
-
+                LoadSponsorsFromDatabase();
+               
+                
             }
             catch (Exception ex)
             {
@@ -150,6 +143,14 @@ namespace Projekt_SternbergundMehr
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+           
+            
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            mainSponsorsWindow.RefreshDataGrid();
+            mainSponsorsWindow.betrag_add();
         }
     }
 }

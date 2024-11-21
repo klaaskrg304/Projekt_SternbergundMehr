@@ -300,9 +300,9 @@ CornerRadius="5">
                 <Setter.Value>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="#FF2B2B2B" />
-                        <Setter Property="Foreground" Value="Gray" />
+                        <Setter Property="Foreground" Value="#FFC5C6C7" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontWeight" Value="Normal" />
                         <Setter Property="FontSize" Value="20" />
                         <Setter Property="Padding" Value="10,5,10,5" />
                         <Setter Property="BorderBrush" Value="#DDDDDD" />
@@ -452,7 +452,7 @@ CornerRadius="5">
 
         </Style>
 
-       
+
 
     </Window.Resources>
 
@@ -501,9 +501,9 @@ CornerRadius="5">
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left"  Effect="{StaticResource Shadow_Menu}" Width="1674" Background="#FF2B2B2B" Height="102" VerticalAlignment="Top" Canvas.Left="-32">
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center"  Effect="{StaticResource Shadow_Menu}" Width="1674" Background="#FF2B2B2B" Height="97" VerticalAlignment="Top" Canvas.Left="-32" Canvas.Top="2">
 
-                <Button x:Name="btn_home1" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF287BC7" Width="352" FontWeight="Bold" Height="104">
+                <Button x:Name="btn_home1" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF287BC7" Width="352" FontWeight="Bold" Height="97">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="/images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
                         <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
@@ -517,11 +517,11 @@ CornerRadius="5">
                 <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="274"/>
                 <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="393" ContextMenuOpening="Menu_ContextMenuOpening">
 
-                    <MenuItem x:Name="mail_nav" Header="        Mail" Background="Transparent" Foreground="#FFC5C6C7" Height="102" Width="219" Padding="5" Click="mail_nav_Click">
+                    <MenuItem x:Name="mail_nav" Header="        Mail" Background="Transparent" Foreground="#FFC5C6C7" Height="94" Width="155" Padding="5" Click="mail_nav_Click">
                         <MenuItem.Icon>
                             <Image Source="/images/mail.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                         </MenuItem.Icon>
-                        <MenuItem x:Name="write_mail" Header="neue Mail schreiben" Background="#FF2B2B2B"  Foreground="#FFC5C6C7" Padding="5" Click="write_mail_Click"/>
+                        <MenuItem x:Name="write_mail" Header="neue Mail schreiben" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="0" Click="write_mail_Click"/>
 
                     </MenuItem>
 
@@ -529,16 +529,16 @@ CornerRadius="5">
                 </Menu>
             </StackPanel>
 
-            
+
             <Button
                 Width="144" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_search" Height="30" Content="suchen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" RenderTransformOrigin="0.472,2.25" Canvas.Left="579" Canvas.Top="114" Click="btn_search_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <StackPanel x:Name="sub_menu" Height="258" Background="#FF2B2B2B" Canvas.Left="321" Canvas.Top="102" Width="221" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <StackPanel x:Name="sub_menu" Visibility="Collapsed" Height="258" Background="#FF2B2B2B" Canvas.Left="321" Canvas.Top="102" Width="221" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         </Canvas>
-        
 
-        
-        
-        
+
+
+
+
         <!-- DataGrid using the ModernDataGridStyle -->
         <Button x:Name="btn_recieve" Style="{StaticResource SpecialButtonStyle2}" Content="update" HorizontalAlignment="Left" Height="46" Margin="1123,10,0,0" VerticalAlignment="Top" Width="142" Click="btn_recieve_Click_1" Background="#FFEEF5F9" Foreground="#FF1F5890"/>
     </Grid>

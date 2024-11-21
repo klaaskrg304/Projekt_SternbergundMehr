@@ -3,21 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Projekt_SternbergundMehr
 {
-    
+
     public partial class Window_Umzug : Window
     {
 
@@ -87,7 +80,7 @@ namespace Projekt_SternbergundMehr
                         bool found = false;
 
                         // Durchlaufe alle Spalten (Zellen) der Zeile
-                        foreach (var column in      dataGrid_umzug.Columns)
+                        foreach (var column in dataGrid_umzug.Columns)
                         {
                             var cellContent = column.GetCellContent(item) as TextBlock;
 
@@ -152,12 +145,12 @@ namespace Projekt_SternbergundMehr
             }
         }
 
-            public void anzahl_teilnehmer()
+        public void anzahl_teilnehmer()
         {
             try
             {
                 int totalAmount = participantsManager.SearchParticipant();
-                string formattedAmount = totalAmount.ToString( CultureInfo.GetCultureInfo("de-DE")) ;
+                string formattedAmount = totalAmount.ToString(CultureInfo.GetCultureInfo("de-DE"));
                 // MessageBox.Show($"Die Gesamtsumme der Teilnehmer beträgt: {formattedAmount}");
                 tbx_sum.Text = formattedAmount;
             }
@@ -400,7 +393,7 @@ namespace Projekt_SternbergundMehr
 
         private void mail_prnt_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void MenuItem_1_Click(object sender, RoutedEventArgs e)
@@ -454,5 +447,5 @@ namespace Projekt_SternbergundMehr
 
 
 
-    
+
 

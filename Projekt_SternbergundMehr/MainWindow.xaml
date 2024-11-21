@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Projekt_SternbergundMehr"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Projekt_SternbergundMehr.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="820" Width="1650" WindowStyle="None" WindowState="Maximized" Background="#8000030A">
+        Title="MainWindow" Height="820" Width="1650" WindowStyle="SingleBorderWindow" WindowState="Maximized" Background="#ffff">
 
     <Window.Resources>
         <Style x:Key="ModernTextBox" TargetType="{x:Type TextBox}">
@@ -253,19 +253,30 @@
 
     </Window.Resources>
 
-    <f:AeroGlassChrome.AeroGlassChrome>
-        <f:AeroGlassChrome/>
-    </f:AeroGlassChrome.AeroGlassChrome>
 
 
-    <Grid Background="Transparent">
+
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
 
             <ColumnDefinition Width="644*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center"  Effect="{StaticResource Shadow_Menu}" Width="1668" Background="#FF2B2B2B" Height="102" VerticalAlignment="Top">
 
-            <Button x:Name="btn_home1" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF287BC7" Width="354" FontWeight="Bold" Height="104">
+        <Border BorderBrush="Black" BorderThickness="0"  Margin="933,79,-497,-328" RenderTransformOrigin="0.5,0.5" Background="#FFFFEB3B" Opacity="0.8">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="27.079"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+
+        <Image  Source="C:\Users\Klaas\Desktop\Projekt_SternbergundMehr\Projekt_SternbergundMehr\images\Landesrapsbluetenfest-Sternberg logo.png" Height="165" Margin="-257,0,267,0" VerticalAlignment="Center" RenderTransformOrigin="-0.438,1.027"/>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center"  Effect="{StaticResource Shadow_Menu}" Width="1668" Background="#FF2B2B2B" Height="78" VerticalAlignment="Top">
+
+            <Button x:Name="btn_home1" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF287BC7" Width="354" FontWeight="Bold" Height="77">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Image Source="/images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
                     <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
@@ -276,18 +287,18 @@
             <StackPanel Height="274">
                 <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="136"/>
             </StackPanel>
-            <Menu Background="Transparent"  Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="393">
+            <Menu Background="Transparent"  Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="78">
 
 
 
 
-                <MenuItem x:Name="sponsor_nav" Header="        Sponsoren" Background="Transparent" Foreground="#FFD7DADC" Height="100" Width="178" Padding="5" Click="sponsor_nav_Click">
+                <MenuItem x:Name="sponsor_nav" Header="        Sponsoren" Background="Transparent" Foreground="#FFD7DADC" Height="79" Width="178" Padding="5" Click="sponsor_nav_Click">
                     <MenuItem.Icon>
                         <Image Source="Images/sponsors.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem x:Name="umzug_nav" Header="        Umzug" Background="Transparent" Foreground="#FFE8EBED" Height="100" Width="180                               " Padding="5" Click="umzug_nav_Click">
+                <MenuItem x:Name="umzug_nav" Header="        Umzug" Background="Transparent" Foreground="#FFE8EBED" Height="74" Width="180                               " Padding="5" Click="umzug_nav_Click">
                     <MenuItem.Icon>
                         <Image Source="Images/partic.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                     </MenuItem.Icon>
@@ -295,7 +306,7 @@
 
 
 
-                <MenuItem x:Name="mail_nav" Header="        Mail" Background="Transparent" Foreground="#FFC5C6C7" Height="100" Width="180" Padding="5" Click="mail_nav_Click">
+                <MenuItem x:Name="mail_nav" Header="        Mail" Background="Transparent" Foreground="#FFC5C6C7" Height="78" Width="180" Padding="5" Click="mail_nav_Click">
                     <MenuItem.Icon>
                         <Image Source="Images/mail.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                     </MenuItem.Icon>
@@ -303,18 +314,18 @@
 
 
             </Menu>
-            <MenuItem x:Name="mitlgieder_nav" Header="        Mitglieder" Background="Transparent" Foreground="#FFC5C6C7" Height="102" Width="232" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Click="mitlgieder_nav_Click">
+            <MenuItem x:Name="mitlgieder_nav" Header="        Mitglieder" Background="Transparent" Foreground="#FFC5C6C7" Height="81" Width="232" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Click="mitlgieder_nav_Click">
                 <MenuItem.Icon>
                     <Image Source="/images/help.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem x:Name="help_nav" Header="        Hilfe" Background="Transparent" Foreground="#FFC5C6C7" Height="101" Width="180" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold">
+            <MenuItem x:Name="help_nav" Header="        Hilfe" Background="Transparent" Foreground="#FFC5C6C7" Height="78" Width="180" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold">
                 <MenuItem.Icon>
                     <Image Source="/images/help.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                 </MenuItem.Icon>
             </MenuItem>
-            <Button x:Name="btn_close" BorderThickness="0"  Content="schliessen"  Height="104" Width="180" Background="#FF2B2B2B" Foreground="#FFC5C6C7" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Click="btn_close_Click"/>
         </StackPanel>
+        <Rectangle HorizontalAlignment="Left" Height="12" Margin="425,1082,0,0" Stroke="Black" VerticalAlignment="Top" Width="0"/>
 
     </Grid>
 </Window>
