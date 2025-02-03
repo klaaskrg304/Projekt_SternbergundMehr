@@ -6,24 +6,23 @@ using System.Windows.Input;
 
 namespace Projekt_SternbergundMehr
 {
-    /// <summary>
-    /// Interaktionslogik für umzug_dialog.xaml
-    /// </summary>
+    
     public partial class umzug_dialog : Window
     {
         private participants participantsManager;
         private ParticipantsData selectedParticipant;
 
         public ObservableCollection<ParticipantsData> Participants { get; set; }
+        private Window_Umzug mainUmzugWindow;
 
-
-        public umzug_dialog()
+        public umzug_dialog(Window_Umzug parentWindow)
         {
             InitializeComponent();
             participantsManager = new participants();
             LoadParticipantsFromDatabase();
             Window_Umzug window_Umzug = new Window_Umzug();
             window_Umzug.Hide();
+            mainUmzugWindow = parentWindow;
         }
 
         private void ClearInputFields()
@@ -139,6 +138,15 @@ namespace Projekt_SternbergundMehr
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+
+            mainUmzugWindow.RefreshDataGrid();
+            mainUmzugWindow.anzahl_teilnehmer();
+            
+
         }
     }
 }

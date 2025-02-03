@@ -507,6 +507,11 @@ namespace Projekt_SternbergundMehr
             var dialogWindow = new Window_spnsors_dialog(this); // Übergibt das Hauptfenster
             dialogWindow.ShowDialog();
         }
+
+        private void tbx_adress_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
 

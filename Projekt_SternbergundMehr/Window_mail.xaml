@@ -7,7 +7,7 @@
     xmlns:f="clr-namespace:FluentWpfChromes;assembly=FluentWpfChromes"
         xmlns:Wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" x:Class="Projekt_SternbergundMehr.Window_mail"
         mc:Ignorable="d"
-        Title="Window_mail"      WindowStartupLocation="CenterScreen"  WindowStyle="None" Background="#FFEAEAEA" WindowState="Maximized" Height="820" Width="1650"    >
+        Title="Sternberg und Mehr eV. - Mail"      WindowStartupLocation="CenterScreen"  WindowStyle="SingleBorderWindow" Background="White" WindowState="Maximized" Height="920" Width="1650" Icon="/images/Landesrapsbluetenfest-Sternberg logo.png"   >
 
     <Window.Resources>
         <Style x:Key="ModernTextBox" TargetType="TextBox">
@@ -456,32 +456,37 @@ CornerRadius="5">
 
     </Window.Resources>
 
-    <f:AeroGlassChrome.AeroGlassChrome>
-        <f:AeroGlassChrome/>
-    </f:AeroGlassChrome.AeroGlassChrome>
 
-    <Grid Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+
+    <Grid >
+
 
 
 
         <!-- DataGrid using the ModernDataGridStyle -->
-        <Canvas HorizontalAlignment="Left" Height="801" Margin="10,-21,0,0" VerticalAlignment="Top" Width="1084">
-            <Border Width="1662" VerticalAlignment="Top" Height="71" HorizontalAlignment="Center" Effect="{StaticResource DefaultShadow}" BorderThickness="0" Background="White" Canvas.Left="-32" Canvas.Top="88">
-                <TextBox x:Name="tbx_search" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" Text="suchen" RenderTransformOrigin="0.518,-0.194" BorderBrush="#FF287BC7" Background="White" FontWeight="Bold" Margin="358,20,1083,10"/>
-            </Border>
 
 
 
-            <Wpf:WebView2 x:Name="WebView2" Width="567" Height="606" HorizontalAlignment="Center" Canvas.Left="959" Canvas.Top="195" VerticalAlignment="Top"  />
-            <ProgressBar Name="progressBar"
-                     Minimum="0" Maximum="100"
-                     Height="55" Width="300"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Top" RenderTransformOrigin="0.57,0.4" Canvas.Top="28" Canvas.Left="659"/>
-            <DataGrid x:Name="dataGrid_mail" Background="Transparent" Width="859" Height="606" Style="{StaticResource ModernDataGridStyle}" HorizontalAlignment="Center"    AutoGenerateColumns="False" SelectionChanged="dataGrid_mail_SelectionChanged"  VerticalAlignment="Top" Canvas.Left="20" Canvas.Top="195">
+
+
+        <!-- DataGrid using the ModernDataGridStyle -->
+
+
+
+
+
+        <!-- DataGrid using the ModernDataGridStyle -->
+        <Canvas HorizontalAlignment="Left" Height="895" Margin="77,-34,0,0" VerticalAlignment="Top" Width="1567">
+
+
+
+            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" Height="809" Canvas.Top="76" Width="1411" Background="#FFCAD1D6" Canvas.Left="66" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Background="White" Height="424" Canvas.Left="98" Canvas.Top="164" Width="1337" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+
+            <Wpf:WebView2 x:Name="WebView2" Width="335"  Height="294" HorizontalAlignment="Left"  Canvas.Left="1069" Canvas.Top="233" VerticalAlignment="Center"  />
+            <DataGrid x:Name="dataGrid_mail" Background="Transparent" Width="859" Height="294" Style="{StaticResource ModernDataGridStyle}" HorizontalAlignment="Center"    AutoGenerateColumns="False" SelectionChanged="dataGrid_mail_SelectionChanged"  VerticalAlignment="Top" Canvas.Left="139" Canvas.Top="233">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Absender" Binding="{Binding Absender}" Width="auto">
                         <DataGridTextColumn.ElementStyle>
@@ -501,9 +506,9 @@ CornerRadius="5">
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center"  Effect="{StaticResource Shadow_Menu}" Width="1674" Background="#FF2B2B2B" Height="97" VerticalAlignment="Top" Canvas.Left="-32" Canvas.Top="2">
+            <StackPanel Height="60" Canvas.Left="98" Orientation="Horizontal" Canvas.Top="57" Width="666" Background="#FF1189D4" HorizontalAlignment="Center" VerticalAlignment="Top">
 
-                <Button x:Name="btn_home1" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF287BC7" Width="352" FontWeight="Bold" Height="97">
+                <Button x:Name="btn_home1" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF1189D4" Width="280" FontWeight="Bold" Height="60">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="/images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
                         <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
@@ -511,28 +516,20 @@ CornerRadius="5">
 
                 </Button>
 
-                <StackPanel Height="274">
-                    <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="136"/>
-                </StackPanel>
-                <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="274"/>
-                <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="393" ContextMenuOpening="Menu_ContextMenuOpening">
-
-                    <MenuItem x:Name="mail_nav" Header="        Mail" Background="Transparent" Foreground="#FFC5C6C7" Height="94" Width="155" Padding="5" Click="mail_nav_Click">
+                <Menu Background="Transparent" Foreground="White" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="69" ContextMenuOpening="Menu_ContextMenuOpening" Width="184">
+                    <MenuItem x:Name="mail_nav" Header="        Mail" Background="Transparent" Foreground="White" Height="54" Width="154" Padding="5" Click="mail_nav_Click">
                         <MenuItem.Icon>
-                            <Image Source="/images/mail.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
+                            <Image Source="/images/mail.png" Margin="-120,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
                         </MenuItem.Icon>
                         <MenuItem x:Name="write_mail" Header="neue Mail schreiben" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="0" Click="write_mail_Click"/>
 
                     </MenuItem>
-
-
                 </Menu>
             </StackPanel>
-
-
+            <Button x:Name="btn_recieve" Style="{StaticResource SpecialButtonStyle2}" Content="update" HorizontalAlignment="Center" Height="42" VerticalAlignment="Top" Width="142" Click="btn_recieve_Click_1" Background="#FFEEF5F9" Foreground="#FF1F5890" Canvas.Left="139" Canvas.Top="182"/>
+            <TextBox x:Name="tbx_search" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" Text="suchen" RenderTransformOrigin="0.518,-0.194" BorderBrush="#FF287BC7" Background="White" FontWeight="Bold" Height="41" Canvas.Left="594" Canvas.Top="187" Width="221"/>
             <Button
-                Width="144" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_search" Height="30" Content="suchen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" RenderTransformOrigin="0.472,2.25" Canvas.Left="579" Canvas.Top="114" Click="btn_search_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <StackPanel x:Name="sub_menu" Visibility="Collapsed" Height="258" Background="#FF2B2B2B" Canvas.Left="321" Canvas.Top="102" Width="221" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                Width="144" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_search" Height="37" Content="suchen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" RenderTransformOrigin="0.472,2.25" Click="btn_search_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="844" Canvas.Top="187"/>
         </Canvas>
 
 
@@ -540,6 +537,5 @@ CornerRadius="5">
 
 
         <!-- DataGrid using the ModernDataGridStyle -->
-        <Button x:Name="btn_recieve" Style="{StaticResource SpecialButtonStyle2}" Content="update" HorizontalAlignment="Left" Height="46" Margin="1123,10,0,0" VerticalAlignment="Top" Width="142" Click="btn_recieve_Click_1" Background="#FFEEF5F9" Foreground="#FF1F5890"/>
     </Grid>
 </Window>

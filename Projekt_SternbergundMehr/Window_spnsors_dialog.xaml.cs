@@ -152,5 +152,10 @@ namespace Projekt_SternbergundMehr
             mainSponsorsWindow.RefreshDataGrid();
             mainSponsorsWindow.betrag_add();
         }
+
+        private void tbx_adress_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

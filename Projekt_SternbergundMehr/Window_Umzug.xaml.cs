@@ -32,7 +32,7 @@ namespace Projekt_SternbergundMehr
             return dataGrid_umzug;
         }
 
-        private void LoadParticipantsFromDatabase()
+       public void LoadParticipantsFromDatabase()
         {
             try
             {
@@ -430,12 +430,26 @@ namespace Projekt_SternbergundMehr
                     MessageBox.Show($"Fehler beim Löschen der Daten: {ex.Message}");
                 }
             }
+
+            RefreshDataGrid();
+        }
+        public void RefreshDataGrid()
+        {
+            try
+            {
+                Participants = participantsManager.Loadparticipants();
+                dataGrid_umzug.ItemsSource = Participants; // DataGrid aktualisieren
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Laden der Daten: {ex.Message}");
+            }
         }
 
         private void btn_dialog_Click(object sender, RoutedEventArgs e)
         {
-            umzug_dialog umzug_ = new umzug_dialog();
-            umzug_.Show();
+            var dialogWindow = new umzug_dialog(this); // Übergibt das Hauptfenster
+            dialogWindow.ShowDialog();
         }
 
         private void btn_search_Click(object sender, RoutedEventArgs e)

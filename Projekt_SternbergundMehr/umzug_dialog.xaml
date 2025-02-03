@@ -6,7 +6,7 @@
         xmlns:f="clr-namespace:FluentWpfChromes;assembly=FluentWpfChromes"
         xmlns:local="clr-namespace:Projekt_SternbergundMehr"
         mc:Ignorable="d"
-        Title="umzug_dialog" Background="Transparent" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="umzug_dialog" Closed="Window_Closed"  Background="Transparent" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize">
 
     <Window.Resources>
         <Style x:Key="ModernTextBox" TargetType="TextBox">
@@ -24,7 +24,7 @@
                                     Background="{TemplateBinding Background}" 
                                     BorderBrush="{TemplateBinding BorderBrush}" 
                                     BorderThickness="{TemplateBinding BorderThickness}" 
-                                    CornerRadius="5">
+                                    CornerRadius="0">
                                 <ScrollViewer x:Name="PART_ContentHost" 
                                               Margin="0" 
                                               VerticalScrollBarVisibility="Hidden" 
@@ -193,7 +193,7 @@
                         <Border Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="15">
+                CornerRadius="0">
                             <ContentPresenter HorizontalAlignment="Center"
                               VerticalAlignment="Center"/>
                         </Border>
@@ -241,7 +241,7 @@
                         <Border Background="{TemplateBinding Background}"
         BorderBrush="{TemplateBinding BorderBrush}"
         BorderThickness="{TemplateBinding BorderThickness}"
-        CornerRadius="15">
+        CornerRadius="0">
                             <ContentPresenter HorizontalAlignment="Center"
                       VerticalAlignment="Center"/>
                         </Border>
@@ -407,7 +407,7 @@ CornerRadius="15">
             <TextBox x:Name="tbx_betrag" Style="{StaticResource ModernTextBox}"  Effect="{StaticResource DefaultShadow}" Height="44" TextWrapping="Wrap" Width="151" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="16" RenderTransformOrigin="0.51,-0.975" Canvas.Left="36" Canvas.Top="271" Text="Position" Background="White"/>
 
         </Canvas>
-        <Button x:Name="btn_add" Height="44" Style="{StaticResource SpecialButtonStyle}"  Effect="{StaticResource DefaultShadow}" Content="+" BorderThickness="0"  Click="btn_add_Click" Foreground="#FFF7F9F5" Background="#FF449A16" FontFamily="Calibri" FontSize="22" FontWeight="Bold" RenderTransformOrigin="3.291,1.66" Margin="574,52,80,334"/>
+        <Button x:Name="btn_add" Style="{StaticResource SpecialButtonStyle}"  Effect="{StaticResource DefaultShadow}" Content="+" BorderThickness="0"  Click="btn_add_Click" Foreground="#FFF7F9F5" Background="#FF449A16" FontFamily="Calibri" FontSize="22" FontWeight="Bold" RenderTransformOrigin="3.291,1.66" Margin="574,50,80,340"/>
         <Button x:Name="btn_update" Height="44" Style="{StaticResource SpecialButtonStyle2}"  Effect="{StaticResource DefaultShadow}" Click="btn_update_Click" BorderThickness="0" Foreground="#FF1F5890" Background="#FFEEF5F9" FontWeight="Bold" FontFamily="Calibri" FontSize="20" Content="speichern" RenderTransformOrigin="-0.557,0.657" Margin="574,136,80,249"/>
         <Button x:Name="btn_clear" Height="44" Style="{StaticResource SpecialButtonStyle2}"  Effect="{StaticResource DefaultShadow}" Content="zurücksetzen" BorderThickness="0"  Click="btn_clear_Click" Foreground="#FF1C516F" FontWeight="Bold" FontFamily="Calibri" FontSize="20" RenderTransformOrigin="0.569,0.782" Background="#FFEEF5F9" Margin="574,253,80,135"/>
         <Button x:Name="btn_close" Height="44" Style="{StaticResource SpecialButtonStyle2}"  Effect="{StaticResource DefaultShadow}" BorderThickness="0"  Click="btn_close_Click" Foreground="#FF1C516F" FontWeight="Bold" FontFamily="Calibri" FontSize="20" RenderTransformOrigin="0.569,0.782" Background="#FFEEF5F9" Margin="574,316,80,74" Content="schliessen"/>

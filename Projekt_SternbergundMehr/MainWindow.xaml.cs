@@ -11,7 +11,7 @@ namespace Projekt_SternbergundMehr
         public MainWindow()
         {
 
-
+            /*  Login-function
             login_window login_Window = new login_window();
 
 
@@ -25,7 +25,9 @@ namespace Projekt_SternbergundMehr
 
                 Application.Current.Shutdown();
             }
+            */
 
+            InitializeComponent();
 
 
         }
@@ -87,6 +89,11 @@ namespace Projekt_SternbergundMehr
             Window mitglied_window = new Window_Mitgliederverwaltung();
 
             mitglied_window.Show();
+        }
+
+        private void help_nav_Kopieren_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

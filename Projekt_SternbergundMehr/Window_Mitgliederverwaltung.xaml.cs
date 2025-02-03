@@ -81,7 +81,14 @@ namespace Projekt_SternbergundMehr
 
         private void dataGrid_mitglieder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (dataGrid_mitglieder.SelectedItem is MitgliedData mitglied)
+            {
+                selectedMitglied = mitglied;
+                tbx_name.Text = mitglied.Name;
+                tbx_telefon.Text = mitglied.Telefonnummer ;
+                tbx_adresse.Text = mitglied.Adresse;
+                tbx_beitrag.Text = mitglied.Beitrag.ToString();
+            }
         }
     }
 }

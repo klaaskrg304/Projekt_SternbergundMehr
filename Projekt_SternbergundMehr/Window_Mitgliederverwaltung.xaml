@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Projekt_SternbergundMehr"
         mc:Ignorable="d"
         Title="Window_Mitgliederverwaltung" Height="920" Width="1650"
-    WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="#FFEAEAEA" WindowState="Maximized" MouseLeftButtonDown="Window_MouseLeftButtonDown"    >
+    WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Background="White" WindowState="Maximized" MouseLeftButtonDown="Window_MouseLeftButtonDown"    >
     <Window.Resources>
         <Style x:Key="ModernTextBox" TargetType="TextBox">
             <Setter Property="Foreground" Value="#333" />
@@ -394,8 +394,8 @@ CornerRadius="15">
             <Setter Property="ColumnHeaderStyle">
                 <Setter.Value>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FFD6D5D5" />
-                        <Setter Property="Foreground" Value="#FF2D2C2C" />
+                        <Setter Property="Background" Value="#FF2B2B2B" />
+                        <Setter Property="Foreground" Value="White" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="FontSize" Value="20" />
@@ -433,58 +433,46 @@ CornerRadius="15">
 
     </Window.Resources>
 
-    <f:AeroGlassChrome.AeroGlassChrome>
-        <f:AeroGlassChrome/>
-    </f:AeroGlassChrome.AeroGlassChrome>
+
 
 
     <Grid>
-        <Border
-            Margin="5,84,0,0" Width="1650" VerticalAlignment="Top" Height="82" HorizontalAlignment="Left" Effect="{StaticResource DefaultShadow}" BorderThickness="0" Background="White">
-            <Button
-                Width="145" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_search" Margin="692,25,0,10" HorizontalAlignment="Left" Content="suchen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" Click="btn_search_Click"/>
-        </Border>
+        <Canvas HorizontalAlignment="Left" Height="895" Margin="77,-34,0,0" VerticalAlignment="Top" Width="1567">
+            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" Height="809" Canvas.Top="76" Width="1411" Background="#FFCAD1D6" Canvas.Left="66" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Height="390" Width="1337" Background="White" Canvas.Top="142" Canvas.Left="96" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Height="60" Canvas.Left="98" Orientation="Horizontal" Canvas.Top="57" Width="666" Background="#FF1189D4" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button x:Name="btn_home" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="White" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF1189D4" Width="285" FontWeight="Bold" Height="60">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="/images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
+                        <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
+                    </StackPanel>
 
-        <StackPanel x:Name="header_panel" Orientation="Horizontal"  HorizontalAlignment="Left"  Effect="{StaticResource Shadow_Menu}" Width="1660" Background="#FF2B2B2B" Height="102" VerticalAlignment="Top">
+                </Button>
 
-            <Button x:Name="btn_home" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="#FFD7DADC" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF287BC7" Width="354" FontWeight="Bold" Height="102">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Image Source="/images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
-                    <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
+                <StackPanel Height="274">
+                    <Menu Background="Transparent" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="60">
+
+                        <MenuItem Header="        Versandt" Background="Transparent" Foreground="White" Height="60" Width="181" Padding="5">
+                            <MenuItem.Icon>
+                                <Image Source="/images/mail.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
+                            </MenuItem.Icon>
+
+                            <MenuItem x:Name="brief_prnt" Header="Serienbrief" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="5" Click="brief_prnt_Click"/>
+                            <MenuItem Header="Mail" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="5"/>
+
+                        </MenuItem>
+                        <MenuItem Header="        Liste" Background="Transparent" Foreground="White" Height="60" Width="184" Padding="5" Click="MenuItem_Click_1">
+                            <MenuItem.Icon>
+                                <Image Source="/images/list.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
+                            </MenuItem.Icon>
+                            <MenuItem x:Name="sponsor_list_prnt" Header="Sponsorenliste" Background="#FFEEF5F9" Foreground="#FF3A71A4" Padding="5" Click="sponsor_list_prnt_Click"/>
+
+                        </MenuItem>
+
+                    </Menu>
                 </StackPanel>
-
-            </Button>
-
-            <StackPanel Height="274">
-                <Menu Background="#FF2B2B2B" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="136">
-
-                    <MenuItem Header="        Versandt" Background="#FF2B2B2B" Foreground="#FFD7DADC" Height="102" Width="180" Padding="5">
-                        <MenuItem.Icon>
-                            <Image Source="/images/mail.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
-                        </MenuItem.Icon>
-
-                        <MenuItem x:Name="brief_prnt" Header="Serienbrief" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="5" Click="brief_prnt_Click"/>
-                        <MenuItem Header="Mail" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="5"/>
-
-                    </MenuItem>
-                    <MenuItem Header="        Liste" Background="#FF2B2B2B" Foreground="#FFD7DADC" Height="102" Width="180" Padding="5" Click="MenuItem_Click_1">
-                        <MenuItem.Icon>
-                            <Image Source="/images/list.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
-                        </MenuItem.Icon>
-                        <MenuItem x:Name="sponsor_list_prnt" Header="Sponsorenliste" Background="#FFEEF5F9" Foreground="#FF3A71A4" Padding="5" Click="sponsor_list_prnt_Click"/>
-
-                    </MenuItem>
-
-                </Menu>
             </StackPanel>
-            <MenuItem x:Name="help_nav" Header="        Hilfe" Background="Transparent" Foreground="#FFC5C6C7" Height="102" Width="180" Padding="5" FontSize="20" FontFamily="Calibri" FontWeight="Bold">
-                <MenuItem.Icon>
-                    <Image Source="/images/help.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
-                </MenuItem.Icon>
-            </MenuItem>
-        </StackPanel>
-        <TextBox x:Name="tbx_search" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" Text="suchen" RenderTransformOrigin="0.518,-0.194" BorderBrush="#FF287BC7" Background="White" FontWeight="Bold" Margin="356,116,1073,0" Height="40" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGrid_mitglieder" 
+            <DataGrid x:Name="dataGrid_mitglieder" 
             HeadersVisibility="Column" 
             Style="{StaticResource ModernDataGridStyle}"  
             Effect="{StaticResource DefaultShadow}"
@@ -494,7 +482,14 @@ CornerRadius="15">
             ColumnWidth="*" 
             EnableRowVirtualization="True" 
             SelectionChanged="dataGrid_mitglieder_SelectionChanged" 
-            Background="Transparent" HorizontalAlignment="Left" Width="767" Margin="96,209,0,0" Height="566" VerticalAlignment="Top"/>
+             Background="Transparent" HorizontalAlignment="Left" Width="1237" Height="239" VerticalAlignment="Center" Canvas.Left="139" Canvas.Top="233"/>
+            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Height="265" Width="658" Background="White" Canvas.Top="550" Canvas.Left="96" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbx_telefon" Height="46" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" TextWrapping="Wrap" Width="170" HorizontalAlignment="Center" Canvas.Left="188" Canvas.Top="644" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="tbx_name" Height="45" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" TextWrapping="Wrap" Width="170" HorizontalAlignment="Left" Canvas.Left="188" Canvas.Top="579" VerticalAlignment="Top" Background="White"/>
 
+            <TextBox x:Name="tbx_beitrag" Height="45"  Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" TextWrapping="Wrap" Width="170" HorizontalAlignment="Center" Canvas.Left="188" Canvas.Top="729" VerticalAlignment="Top" Background="White"/>
+            <TextBox x:Name="tbx_adresse" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" Height="111" Canvas.Left="425" Canvas.Top="579" Width="266" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White"/>
+            <TextBox x:Name="tbx_search" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" Text="suchen" RenderTransformOrigin="0.518,-0.194" BorderBrush="#FF287BC7" Background="White" FontWeight="Bold" Height="40" VerticalAlignment="Top" Canvas.Left="917" Canvas.Top="174" Width="221"/>
+        </Canvas>
     </Grid>
 </Window>

@@ -358,7 +358,7 @@ CornerRadius="5">
         <TextBox x:Name="tbx_subject" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Margin="29,104,0,0" TextWrapping="Wrap" Text="Betreff" VerticalAlignment="Top" Width="282" Height="46" Background="#FFEEF5F9"/>
         <TextBox x:Name="tbx_message" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Margin="29,188,0,0" TextWrapping="Wrap" Text="Nachricht:" VerticalAlignment="Top" Width="682" Height="218" Background="#FFEEF5F9"/>
         <Button x:Name="btn_send"  Content="Senden" HorizontalAlignment="Left" Margin="451,104,0,0" VerticalAlignment="Top" Width="98" Height="46" Click="btn_send_Click" Background="#FF2252A2" Foreground="White" RenderTransformOrigin="-1.005,-0.587"/>
-        <Button x:Name="btn_attach"  Content="Anhang" HorizontalAlignment="Left" Margin="613,104,0,0" VerticalAlignment="Top" Width="98" Height="46" Click="btn_send_Click" Background="#FF2252A2" Foreground="White"/>
+        <Button x:Name="btn_attach"  Content="Anhang" HorizontalAlignment="Left" Margin="613,104,0,0" VerticalAlignment="Top" Width="98" Height="46" Click="btn_attach_Click" Background="#FF2252A2" Foreground="White"/>
         <Button x:Name="btn_close" Content="X" BorderThickness="0"  Foreground="White" Background="#FFA51515" VerticalAlignment="Top" Click="Button_Click" Height="44"  HorizontalAlignment="Right" Width="64" RenderTransformOrigin="0.272,1.562" BorderBrush="#FFF7F7F7"/>
     </Grid>
 </Window>
