@@ -401,7 +401,7 @@ CornerRadius="15">
                         <Setter Property="Background" Value="#FF2B2B2B" />
                         <Setter Property="Foreground" Value="#FFC5C6C7" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        <Setter Property="FontWeight" Value="Normal" />
+                        <Setter Property="FontWeight" Value="Bold" />
                         <Setter Property="FontSize" Value="20" />
                         <Setter Property="Padding" Value="10,5,10,5" />
                         <Setter Property="BorderBrush" Value="#DDDDDD" />

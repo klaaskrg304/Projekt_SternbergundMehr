@@ -53,6 +53,7 @@ namespace Projekt_SternbergundMehr
             }
         }
 
+
         public void RefreshDataGrid()
         {
             try
@@ -231,6 +232,21 @@ namespace Projekt_SternbergundMehr
                 }
             }
         }
+
+        private void dataGrid_sponsoren_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            // Prüfe, ob die Spalte den Namen "Betrag" hat (ersetze "Betrag" durch den tatsächlichen Namen der Spalte)
+            if (e.PropertyName == "Betrag")
+            {
+                if (e.Column is DataGridTextColumn textColumn)
+                {
+                    // Style für die Spalte setzen
+                    textColumn.ElementStyle = new Style(typeof(TextBlock));
+                    textColumn.ElementStyle.Setters.Add(new Setter(TextBlock.ForegroundProperty, Brushes.Green));
+                }
+            }
+        }
+
 
 
 
