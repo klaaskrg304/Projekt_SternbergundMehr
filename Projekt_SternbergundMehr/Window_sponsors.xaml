@@ -380,8 +380,8 @@ CornerRadius="15">
             <Setter Property="AutoGenerateColumns" Value="False" />
 
             <Setter Property="CanUserAddRows" Value="False" />
-            <Setter Property="ColumnHeaderHeight" Value="40" />
-            <Setter Property="RowHeight" Value="35" />
+            <Setter Property="ColumnHeaderHeight" Value="30" />
+            <Setter Property="RowHeight" Value="45" />
             <Setter Property="GridLinesVisibility" Value="None" />
             <Setter Property="HorizontalGridLinesBrush" Value="#FFDDDDDD" />
 
@@ -398,12 +398,12 @@ CornerRadius="15">
             <Setter Property="ColumnHeaderStyle">
                 <Setter.Value>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FF2B2B2B" />
-                        <Setter Property="Foreground" Value="#FFC5C6C7" />
+                        <Setter Property="Background" Value="#FF005A99" />
+                        <Setter Property="Foreground" Value="White" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        <Setter Property="FontWeight" Value="Bold" />
-                        <Setter Property="FontSize" Value="20" />
-                        <Setter Property="Padding" Value="10,5,10,5" />
+                        <Setter Property="FontWeight" Value="Normal" />
+                        <Setter Property="FontSize" Value="15" />
+                        <Setter Property="Padding" Value="0,5,10,5" />
                         <Setter Property="BorderBrush" Value="#DDDDDD" />
                         <Setter Property="BorderThickness" Value="0,0,0,1" />
                     </Style>
