@@ -380,32 +380,33 @@ CornerRadius="15">
             <Setter Property="AutoGenerateColumns" Value="False" />
 
             <Setter Property="CanUserAddRows" Value="False" />
-            <Setter Property="ColumnHeaderHeight" Value="30" />
+            <Setter Property="ColumnHeaderHeight" Value="35" />
             <Setter Property="RowHeight" Value="45" />
-            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="GridLinesVisibility" Value="All" />
+            <Setter Property="VerticalGridLinesBrush" Value="#FFDDDDDD" />
             <Setter Property="HorizontalGridLinesBrush" Value="#FFDDDDDD" />
 
             <Setter Property="Background" Value="White" />
             <Setter Property="Foreground" Value="#333333" />
-            <Setter Property="BorderBrush" Value="#DDDDDD" />
+            <Setter Property="BorderBrush" Value="#FF1189D4" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="RowBackground" Value="White" />
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled"/>
-
-            <Setter Property="AlternatingRowBackground" Value="#FFE0DFDF" />
+            <Setter Property="SelectionMode" Value="Extended" />
+            <Setter Property="AlternatingRowBackground" Value="LightBlue" />
 
 
             <Setter Property="ColumnHeaderStyle">
                 <Setter.Value>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#FF005A99" />
-                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="Black" />
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
                         <Setter Property="FontWeight" Value="Normal" />
                         <Setter Property="FontSize" Value="15" />
                         <Setter Property="Padding" Value="0,5,10,5" />
-                        <Setter Property="BorderBrush" Value="#DDDDDD" />
-                        <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        <Setter Property="BorderBrush" Value="#FF1189D4" />
+                        <Setter Property="BorderThickness" Value="1,1,1,1" />
                     </Style>
                 </Setter.Value>
             </Setter>
@@ -413,13 +414,17 @@ CornerRadius="15">
                 <Setter.Value>
                     <Style TargetType="DataGridCell">
                         <Setter Property="Padding" Value="10,5,10,5" />
-                        <Setter Property="BorderBrush" Value="#DDDDDD" />
+                        <Setter Property="BorderBrush" Value="#FF1189D4" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+
                         <Setter Property="BorderThickness" Value="0,0,1,1" />
                         <Setter Property="VerticalContentAlignment" Value="Center" />
                         <Setter Property="BorderThickness" Value="0" />
                     </Style>
                 </Setter.Value>
             </Setter>
+
         </Style>
 
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
@@ -434,95 +439,241 @@ CornerRadius="15">
             </Setter>
         </Style>
 
+        <Style TargetType="MenuItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="MenuItem">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Icon}" Width="24" Height="24" Margin="5"/>
+                                    <ContentPresenter Margin="5"/>
+                                </StackPanel>
+                            </Border>
+                            <Popup IsOpen="{TemplateBinding IsSubmenuOpen}" Placement="Right" 
+                                   AllowsTransparency="True" PopupAnimation="Fade">
+                                <Border Background="#FFEEF5F9" CornerRadius="5" Padding="5">
+                                    <StackPanel>
+                                        <ItemsPresenter />
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover-Effekt -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF3A71A4"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <!-- Klick-Effekt -->
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FF285583"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ModernExpanderStyle" TargetType="Expander">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF3A71A4" Offset="0.0"/>
+                        <GradientStop Color="#FF1E4A7A" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Expander">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                            <StackPanel>
+                                <ToggleButton x:Name="Header" Content="{TemplateBinding Header}" 
+                                          Foreground="White" FontSize="20" 
+                                          FontWeight="Bold" Background="Transparent"
+                                          Padding="10" Height="70" Cursor="Hand"/>
+                                <ContentPresenter x:Name="ExpandSite" Visibility="Collapsed"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="True">
+                                <Setter TargetName="ExpandSite" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Stil für moderne Buttons mit Hover -->
+        <Style x:Key="HoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FF3A71A4"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF3A71A4"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
 
     </Window.Resources>
 
 
 
 
-    <Grid x:Name="grid_window"  Background="#01988B8B" Margin="-24,0,0,0">
+    <Grid x:Name="grid_window"  Background="#01988B8B" Margin="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="275*"/>
+            <RowDefinition Height="125*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
-            <ColumnDefinition/>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="269*"/>
         </Grid.ColumnDefinitions>
 
 
-        <Canvas HorizontalAlignment="Left" Height="895" Margin="77,-34,0,0" VerticalAlignment="Top" Width="1567">
 
 
-            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" Height="809" Canvas.Top="76" Width="1411" Background="#FFCAD1D6" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="66"/>
+        <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Background="White" Margin="65,29,45,65" Grid.Column="1" Grid.RowSpan="3"/>
 
 
-            <StackPanel Height="60" Canvas.Left="98" Orientation="Horizontal" Canvas.Top="57" Width="666" Background="#FF1189D4" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <Button x:Name="btn_home" Style="{StaticResource Home_btnStyle}"  BorderThickness="0"  Foreground="White" Click="btn_home_Click" RenderTransformOrigin="0.546,2.001" FontFamily="Segoe UI Semibold" FontSize="20" Background="#FF1189D4" Width="284" FontWeight="Bold" Height="60">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="Images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
-                        <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
-                    </StackPanel>
 
-                </Button>
 
-                <StackPanel Height="89" Canvas.Left="431" Canvas.Top="72" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Menu Background="#FF1189D4" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="58">
+        <StackPanel Height="904" Width="304" Orientation="Vertical" 
+            Background="#FF1189D4" VerticalAlignment="Top"
+            HorizontalAlignment="Center" Grid.RowSpan="3">
 
-                        <MenuItem Header="        Versandt" Background="Transparent" Foreground="White" Height="60" Width="180" Padding="5">
-                            <MenuItem.Icon>
-                                <Image Source="Images/mail.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
-                            </MenuItem.Icon>
-
-                            <MenuItem x:Name="brief_prnt" Header="Serienbrief" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="5" Click="brief_prnt_Click"/>
-                            <MenuItem Header="Mail" Background="#FFEEF5F9"  Foreground="#FF3A71A4" Padding="5"/>
-
-                        </MenuItem>
-                        <MenuItem Header="        Liste" Background="Transparent" Foreground="White" BorderThickness="0" Height="60" Width="159" Padding="5" Click="MenuItem_Click_1">
-                            <MenuItem.Icon>
-                                <Image Source="Images/list.png" Margin="-117,-8,-169,-10" RenderTransformOrigin="4.567,0.367" />
-                            </MenuItem.Icon>
-                            <MenuItem x:Name="sponsor_list_prnt" Header="Sponsorenliste" Background="#FFEEF5F9" Foreground="#FF3A71A4" Padding="5" Click="sponsor_list_prnt_Click"/>
-
-                        </MenuItem>
-
-                    </Menu>
+            <!-- Home-Button -->
+            <Button x:Name="btn_home" Style="{StaticResource Home_btnStyle}"  
+            BorderThickness="0" Foreground="White" Click="btn_home_Click"
+            FontFamily="Segoe UI Semibold" FontSize="20"
+            Background="#FF1189D4" Width="300" FontWeight="Bold" Height="94">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="Images/home.png" Width="30" Height="30" Margin="0,0,10,0" />
+                    <TextBlock Text="Home" FontWeight="Bold" VerticalAlignment="Center" />
                 </StackPanel>
-            </StackPanel>
+            </Button>
+
+            <!-- Versandt-Menü als Expander mit Animation -->
+            <Expander Header="📩 Versandt" Background="Transparent"   Foreground="White" FontSize="20" Width="300">
+                <Expander.RenderTransform>
+                    <ScaleTransform ScaleY="1"/>
+                </Expander.RenderTransform>
+                <Expander.Triggers>
+                    <EventTrigger RoutedEvent="Expander.Expanded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                         From="0" To="1" Duration="0:0:0.6"
+                                         AccelerationRatio="0.3" DecelerationRatio="0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Expander.Triggers>
+                <StackPanel Background="White" >
+                    <Button x:Name="brief_prnt" Content="📄 Serienbrief" Click="brief_prnt_Click"
+                    Background="Transparent" Foreground="#FF3A71A4" Padding="5"
+                    Style="{StaticResource HoverButtonStyle}"/>
+                    <Button Content="📧 Mail" Background="Transparent" Foreground="#FF3A71A4" Padding="5"
+                    Style="{StaticResource HoverButtonStyle}"/>
+                </StackPanel>
+            </Expander>
+
+            <!-- Liste-Menü als Expander mit Animation -->
+            <Expander Header="📋 Liste" Background="Transparent" FontSize="22" Foreground="White" Width="300">
+                <Expander.RenderTransform>
+                    <ScaleTransform ScaleY="1"/>
+                </Expander.RenderTransform>
+                <Expander.Triggers>
+                    <EventTrigger RoutedEvent="Expander.Expanded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                         From="0" To="1" Duration="0:0:0.3"
+                                         AccelerationRatio="0.3" DecelerationRatio="0.7"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Expander.Triggers>
+                <StackPanel Background="White" >
+                    <Button x:Name="sponsor_list_prnt" Content="📝 Sponsorenliste" Click="sponsor_list_prnt_Click"
+                    Background="Transparent" Foreground="#FF3A71A4" Padding="5"
+                    Style="{StaticResource HoverButtonStyle}"/>
+                </StackPanel>
+            </Expander>
+
+        </StackPanel>
 
 
 
 
-            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Height="390" Width="1337" Background="White" Canvas.Top="142" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="96"/>
+        <DataGrid x:Name="dataGrid_sponsoren" 
+          HeadersVisibility="Column" 
+          Style="{StaticResource ModernDataGridStyle}"  
+          AutoGenerateColumns="False"
+          CanUserResizeColumns="False" 
+          CanUserResizeRows="False" 
+          ColumnWidth="*" 
+          EnableRowVirtualization="True" 
+          SelectionChanged="dataGrid_sponsoren_SelectionChanged" 
+          Background="Transparent" 
+          HorizontalAlignment="Left" 
+          Width="1082" 
+          Margin="120,0,0,0" 
+          Grid.Column="1" 
+          Height="490" 
+          VerticalAlignment="Center" 
+          Grid.Row="1">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Firma" Binding="{Binding Firma}" />
+                <DataGridTextColumn Header="Ansprechpartner" Binding="{Binding Ansprechpartner}" />
+                <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}" />
+                <DataGridTextColumn Header="Betrag">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="Betrag" StringFormat="{}{0:C}">
+                            <Binding.ConverterCulture>de-DE</Binding.ConverterCulture>
+                        </Binding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
 
 
-            <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" HorizontalAlignment="Center" Height="265" VerticalAlignment="Top" Width="658" Background="White" Canvas.Top="550" Canvas.Left="96"/>
+        <Button x:Name="btn_dialog" Style="{StaticResource SpecialButtonStyle}" BorderThickness="0" Content="hinzufügen" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="146" Background="#FF287BC7" Foreground="White" Click="btn_dialog_Click" RenderTransformOrigin="0.51,2" Margin="1052,80,0,0" Grid.Column="1" Grid.Row="2"/>
+        <Button
+                Width="144" VerticalAlignment="Top" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_delete" Height="40" HorizontalAlignment="Left" Content="löschen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" Click="btn_delete_Click_1" RenderTransformOrigin="0.542,-1.215" Margin="1054,15,0,0" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="tbx_search" Height="40" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" Text="suchen" Width="222" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.194" BorderBrush="#FF287BC7" Background="White" BorderThickness="2" FontSize="12" Margin="120,52,0,0" Grid.Column="1"/>
+        <Button
+        Width="146" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_search" HorizontalAlignment="Left" Content="suchen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" Click="btn_search_Click" Height="40" VerticalAlignment="Top" Grid.Column="1" Margin="1054,52,0,0"/>
+        <TextBox x:Name="tbx_Firma" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Height="45" Margin="120,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Grid.Column="1" Grid.Row="2" IsEnabled="False"/>
+        <TextBox x:Name="tbx_adress"  Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Height="45" Margin="403,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Grid.Column="1" Grid.Row="2" IsEnabled="False"/>
+        <TextBox x:Name="tbx_anspr" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Height="45" Margin="120,80,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Grid.Column="1" Grid.Row="2" IsEnabled="False"/>
+        <TextBox x:Name="tbx_sum" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Height="40" Margin="403,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="207" Grid.Column="1" IsEnabled="False"/>
+        <TextBox x:Name="tbx_betrag" Style="{StaticResource ModernTextBox}" HorizontalAlignment="Left" Height="45" Margin="466,80,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="207" Grid.Column="1" Grid.Row="2" IsEnabled="False"/>
 
 
-            <TextBox x:Name="tbx_Firma" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" Height="40" Canvas.Left="139" TextWrapping="Wrap" Canvas.Top="583" Width="182" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" IsEnabled="False" Background="White"/>
-            <TextBox x:Name="tbx_anspr" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" Height="44" Canvas.Left="139" TextWrapping="Wrap" Canvas.Top="652" Width="182" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" IsEnabled="False" Background="White"/>
-            <TextBox x:Name="tbx_adress" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" Height="113" Canvas.Left="396" TextWrapping="Wrap" Canvas.Top="583" Width="302" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" IsEnabled="False" Background="White" TextChanged="tbx_adress_TextChanged"/>
-            <TextBox x:Name="tbx_sum" Style="{StaticResource ModernTextBox}" TextAlignment="Center" VerticalAlignment="Top" Effect="{StaticResource DefaultShadow}" TextWrapping="Wrap" Background="#FFE03448" Foreground="White" Height="50" Canvas.Left="139" Canvas.Top="168" Width="166" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" IsEnabled="False" RenderTransformOrigin="0.473,-0.396" TextChanged="tbx_sum_TextChanged"/>
-            <TextBox x:Name="tbx_betrag" Style="{StaticResource ModernTextBox}" Effect="{StaticResource DefaultShadow}" Height="41" Canvas.Left="139" TextWrapping="Wrap" Canvas.Top="731" Width="182" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.482,1.456" IsEnabled="False" Background="White"/>
-            <DataGrid x:Name="dataGrid_sponsoren" 
-              HeadersVisibility="Column" 
-              Style="{StaticResource ModernDataGridStyle}"  
-                      Effect="{StaticResource DefaultShadow}"
-              AutoGenerateColumns="True"
-              CanUserResizeColumns="False" 
-              CanUserResizeRows="False" 
-              ColumnWidth="*" 
-              EnableRowVirtualization="True" 
-              SelectionChanged="dataGrid_sponsoren_SelectionChanged" 
-              Background="Transparent" HorizontalAlignment="Left" Width="1237" Height="239" VerticalAlignment="Center" Canvas.Left="139" Canvas.Top="233"/>
-            <Button x:Name="btn_dialog" Style="{StaticResource SpecialButtonStyle}" BorderThickness="0" Content="hinzufügen" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="146" Background="#FF287BC7" Foreground="White" Click="btn_dialog_Click" RenderTransformOrigin="0.51,2" Canvas.Left="1230" Canvas.Top="477"/>
-            <Button
-                Width="144" VerticalAlignment="Center" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_delete" Height="30" HorizontalAlignment="Left" Content="löschen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" Click="btn_delete_Click_1" Canvas.Left="139" Canvas.Top="477" RenderTransformOrigin="0.542,-1.215"/>
-            <TextBox x:Name="tbx_search" Height="40" Canvas.Left="926" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" Text="suchen" Canvas.Top="178" Width="222" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.518,-0.194" BorderBrush="#FF287BC7" Background="White" BorderThickness="2" FontSize="12"/>
-            <Button
-        Width="145" Style="{StaticResource SpecialButtonStyle_border}" x:Name="btn_search" HorizontalAlignment="Center" Content="suchen" BorderThickness="2" BorderBrush="#FF287BC7" Background="White" Foreground="#FF287BC7" Click="btn_search_Click" Height="40" Canvas.Left="1231" Canvas.Top="178" VerticalAlignment="Top"/>
 
-
-        </Canvas>
     </Grid>
 </Window>
 

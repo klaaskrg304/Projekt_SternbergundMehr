@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using static MaterialDesignThemes.Wpf.Theme;
+using static MaterialDesignThemes.Wpf.Theme.ToolBar;
 using WpfWindow = System.Windows.Window;
 
 namespace Projekt_SternbergundMehr
@@ -33,7 +35,7 @@ namespace Projekt_SternbergundMehr
             betrag_add();
         }
 
-        public DataGrid GetDataGrid()
+        public System.Windows.Controls.DataGrid GetDataGrid()
         {
             return dataGrid_sponsoren;
         }
@@ -263,14 +265,19 @@ namespace Projekt_SternbergundMehr
 
         private void dataGrid_sponsoren_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           
+
             if (dataGrid_sponsoren.SelectedItem is SponsorData sponsor)
             {
                 selectedSponsor = sponsor;
                 tbx_Firma.Text = sponsor.Firma;
                 tbx_anspr.Text = sponsor.Ansprechpartner;
                 tbx_adress.Text = sponsor.Adresse;
-                tbx_betrag.Text = sponsor.Betrag.ToString();
+                tbx_betrag.Text = sponsor.BetragFormatted;
             }
+
+          
+
         }
 
         private void btn_betragaddieren_Click(object sender, RoutedEventArgs e)
@@ -550,6 +557,8 @@ public class SponsorData
     public string Ansprechpartner { get; set; }
     public string Adresse { get; set; }
     public double Betrag { get; set; }
+    public string BetragFormatted => Betrag.ToString("C", new System.Globalization.CultureInfo("de-DE"));
+
 }
 
 

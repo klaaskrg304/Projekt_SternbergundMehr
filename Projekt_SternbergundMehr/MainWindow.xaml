@@ -297,13 +297,14 @@
 
             <!-- Bottom Spacer Menu -->
             <Menu Background="Transparent" Foreground="#FF3A71A4" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="60"/>
+            <DockPanel Height="100" LastChildFill="False"/>
 
         </StackPanel>
 
 
 
         <Rectangle HorizontalAlignment="Left" Height="12" Margin="425,1082,0,0" Stroke="Black" VerticalAlignment="Top" Width="0"/>
-        <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Background="White" Margin="390,84,82,40">
+        <Border BorderBrush="Black" BorderThickness="0" Effect="{StaticResource DefaultShadow}" CornerRadius="15" Background="White" Margin="390,84,82,85">
             <Image  Source="C:\Users\Klaas\Desktop\Projekt_SternbergundMehr\Projekt_SternbergundMehr\images\Landesrapsbluetenfest-Sternberg logo.png" Height="110" Margin="52,0,52,0" VerticalAlignment="Center" RenderTransformOrigin="-0.438,1.027"/>
         </Border>
 
